@@ -11,7 +11,7 @@ trash2 = containers.load('point', 'D2', 'trash2')
 m200 = instruments.Pipette(name="m200", trash_container=trash2, tip_racks=[m200rack2], min_volume = 30, max_volume = 200, axis ="a", channels = 8)
 
 plate_a = []
-for row in plate2.rows('6', to='12'):
+for row in plate2.rows('7', to='12'):
 	plate_a.append(row.wells('A', length=8, step=2))
 	plate_a.append(row.wells('B', length=8, step=2))
 
