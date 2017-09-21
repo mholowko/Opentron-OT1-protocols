@@ -25,7 +25,8 @@ m2.transfer(12, trough2.wells('E1'), trough2.wells('A3'), trash=True)
 #reaction buffer 384ul#
 m2.transfer(384, trough2.wells('G1'), trough2.wells('A3'), trash=True)
 #water 1440ul#
-m2.transfer(1440, trough2.wells('B2'), trough2.wells('A3'), new_tip='never')
+m2.transfer(900, trough2.wells('B2'), trough2.wells('A3'), trash=True)
+m2.transfer(900, trough2.wells('D2'), trough2.wells('A3'), new_tip='never')
 m2.mix(8)
 m2.drop_tip(trash2)
 
