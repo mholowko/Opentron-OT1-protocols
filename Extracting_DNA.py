@@ -12,47 +12,54 @@ m200rack6 = containers.load('tiprack-200ul', 'B3', 'm200-rack6')
 m200rack7 = containers.load('tiprack-200ul', 'C1', 'm200-rack7')
 m200rack8 = containers.load('tiprack-200ul', 'C3', 'm200-rack8')
 m200rack9 = containers.load('tiprack-200ul', 'D1', 'm200-rack9')
-m200rack10 = containers.load('tiprack-200ul', 'D3', 'm200-rack10')
+
 trash2 = containers.load('point', 'D2', 'trash2')
 
 m200 = instruments.Pipette(
 	name = "m200",
 	trash_container = trash2,
-	tip_racks = [m200rack2, m200rack3, m200rack4,m200rack5,m200rack6,m200rack7,m200rack8,m200rack9,m200rack10],
+	tip_racks = [m200rack2, m200rack3, m200rack4,m200rack5,m200rack6,m200rack7,m200rack8,m200rack9],
 	min_volume = 10,
 	max_volume = 200,
 	axis = "a",
 	channels = 8)
 
-plate_a = []
-for row in plate2.rows():
-	plate_a.append(row)
-
-plate_b = []
-for row in elute_plate.rows():
-	plate_b.append(row)
-
 #for a 96 well plate, 20ul Sample Reaction Volume
+#total number of tipracks needed = 
 #addition of AMPure XP -> total volume in each well = 56ul
-m200.transfer(36, source_plate('A1'), plate_a, mix_after=(10,40), new_tip='always', trash=True)
+for row in plate2.rows():
+	m200.transfer(36, source_plate('A1'), row, mix_after=(10,40), new_tip='always', trash=True)
 
 #separate beads for 2min, leave behind 5~6ul supernatant
 mag_deck.engage()
 m200.delay(120)
-m200.transfer(50, plate_a, trash2, new_tip='always', trash=True)
+for row in plate2.rows():
+	m200.transfer(50, row, trash2, new_tip='always', trash=True)
 
 #for 2 times, wash with 200ul ethanol, incubate for 30s, take out ethanol and throw.
-#can't use for loop, robot prints 'run out of tips'
-#for i in range(2):
-m200.transfer(200, source_plate('A3'), plate_a, new_tips='always', trash=True).delay(30)
-m200.transfer(200, plate_a, trash2, new_tips='always', trash=True).delay(60)
+for row in plate2.rows():
+	m200.transfer(200, source_plate('A3'), row, new_tips='always', trash=False)
+m200.delay(30)
+for row in plate2.rows():
+	m200.transfer(200, row, trash2, new_tips='always', trash=False)
+m200.delay(30)
+for row in plate2.rows():
+	m200.transfer(200, source_plate('A3'), row, new_tips='always', trash=False)
+m200.delay(30)
+for row in plate2.rows():
+	m200.transfer(200, row, trash2, new_tips='always', trash=True)
+m200.delay(30)
 mag_deck.disengage()
 
 #addition of 40ul elution buffer
-m200.transfer(40, source_plate('A5'), plate_a, mix_after=(10, 35), new_tip='always', trash=True)
+for row in plate2.rows:
+	m200.transfer(40, source_plate('A5'), row, mix_after=(10, 35), new_tip='always', trash=False)
 m200.delay(120)
 
 #separate magnetic beads from mixture
 mag_deck.engage()
 m200.delay(60)
-m200.transfer(5, plate_a, plate_b, new_tip='always', trash=True)
+i=0
+for row in elute_plate.rows():
+	m200.transfer(38, plate2.rows(i), row, new_tip='always', trash=True)
+	i += 1
