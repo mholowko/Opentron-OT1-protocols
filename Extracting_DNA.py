@@ -5,12 +5,20 @@ plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
 elute_plate = containers.load('96-PCR-flat', 'C1', 'elute_plate')
 mag_deck= instruments.Magbead(name='mag_deck')
 m200rack2 = containers.load('tiprack-200ul', 'A2', 'm200-rack2')
+m200rack3 = containers.load('tiprack-200ul', 'A1', 'm200-rack3')
+m200rack4 = containers.load('tiprack-200ul', 'A3', 'm200-rack4')
+m200rack5 = containers.load('tiprack-200ul', 'B1', 'm200-rack5')
+m200rack6 = containers.load('tiprack-200ul', 'B3', 'm200-rack6')
+m200rack7 = containers.load('tiprack-200ul', 'C1', 'm200-rack7')
+m200rack8 = containers.load('tiprack-200ul', 'C3', 'm200-rack8')
+m200rack9 = containers.load('tiprack-200ul', 'D1', 'm200-rack9')
+m200rack10 = containers.load('tiprack-200ul', 'D3', 'm200-rack10')
 trash2 = containers.load('point', 'D2', 'trash2')
 
 m200 = instruments.Pipette(
 	name = "m200",
 	trash_container = trash2,
-	tip_racks = [m200rack2],
+	tip_racks = [m200rack2, m200rack3, m200rack4,m200rack5,m200rack6,m200rack7,m200rack8,m200rack9,m200rack10],
 	min_volume = 10,
 	max_volume = 200,
 	axis = "a",
