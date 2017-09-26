@@ -21,15 +21,19 @@ ax_y = Axis(label='Time (seconds)', scale=y_sc, orientation='vertical', tick_for
 line = Lines(x=x_data,
              y=original_data,
              scales={'x': x_sc, 'y': y_sc},
-             colors=['red', 'yellow'],
-             label = 'original')
+             colors=['red', 'black'],
+             labels = ['original'],
+             labels_visibility = 'label',
+             display_legend=True)
 
 line2 = Lines(x=x_data,
              y=fit_data,
              scales={'x': x_sc, 'y': y_sc},
-             colors=['green', 'green'],
-             label = 'fit')
+             colors=['green', 'black'],
+             labels = ['fit'],
+             line_style = 'dashed',
+             display_legend=True)
 
-fig = Figure(axes=[ax_x, ax_y], marks=[line,line2])
+fig = Figure(axes=[ax_x, ax_y], marks=[line,line2],legend_location='left')
 
 display(fig)
