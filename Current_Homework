@@ -1,6 +1,4 @@
 Find out how to use calibration data when running from the terminal
-For PCR protocol rewrite with 24 tube rack
-Come up with a set of experiments to create a graph T = f(V) for Echo and Opentron (5, 10, 20, 50)
-For the magnetic beads - optimize use of tip racks
+For the magnetic beads - optimize use of tip racks, find out how to load more than one rack
 For Echo figure out how to provide a automated list of transfers
-Familiarize with bqplot
+Write an equation and optimize it using scipy
