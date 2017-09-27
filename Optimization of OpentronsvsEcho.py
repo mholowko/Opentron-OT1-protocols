@@ -8,7 +8,7 @@ def func(x, a):
 x_data = [2.5, 5, 10, 20, 30, 50]
 original_data = [106, 109, 147, 212, 276, 462]
 
-popt, pcov = curve_fit(func,x_data,y_data,p0=9)
+popt, pcov = curve_fit(func,x_data,original_data,p0=9)
 
 fit_data = func(x_data,popt)
 
