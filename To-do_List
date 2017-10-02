@@ -2,3 +2,4 @@ Write a program to run from terminal using the previous calibrations
 For the magnetic beads - optimize use of tip racks, find out how to load more than one rack
 Write a python program to prepare Echo transfer map
 Write an equation and optimize it using scipy
+Check if we can master protocol file
