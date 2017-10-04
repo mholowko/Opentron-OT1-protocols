@@ -1,0 +1,8 @@
+exec(open('ExtractingDNA1.py').read())
+exec(open('ExtractingDNA2.py').read())
+exec(open('ExtractingDNA3.py').read())
+exec(open('ExtractingDNA4.py').read())
+exec(open('ExtractingDNA5.py').read())
+exec(open('ExtractingDNA6.py').read())
+exec(open('ExtractingDNA7.py').read())
+exec(open('ExtractingDNA8.py').read())
