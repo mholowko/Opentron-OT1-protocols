@@ -1,6 +1,6 @@
 from opentrons import containers, instruments, robot
 
-trough2 = containers.create('trough2', grid=(1,2), spacing =(8.5, 6.3), diameter = 8.5, depth= 5)
+trough2 = containers.create('trough2', grid=(1,2), spacing =(85, 63), diameter = 85, depth= 40)
 
 trough = containers.load('trough2', 'C3', 'trough')
 m200rack = containers.load('tiprack-200ul', 'B3', 'm200rack')
