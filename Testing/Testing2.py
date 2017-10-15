@@ -1,8 +1,8 @@
 from opentrons import containers, instruments, robot
 
-yvonne_plate = containers.create('yvonne_plate', grid=(16, 24), spacing =(4.5,4.5), diameter = 3.63, depth = 7)
+well20 = containers.create('well20', grid=(4, 5), spacing =(16,21), diameter = 10, depth =33)
 
-trough2 = containers.load('point', 'C3', 'trough')
+trough2 = containers.load('well20', 'C1', 'trough')
 plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
 m200rack2 = containers.load('tiprack-200ul', 'B2', 'm200-rack2')
 trash2 = containers.load('point', 'D2', 'trash2')
@@ -17,7 +17,7 @@ for col in plate2.cols():
 		i += 1
 
 m200.pick_up_tip(m200rack2.well('A1'))
-m200.distribute(25, trough2['A1'], plate_a, trash=True)
+m200.distribute(25, trough2['A5'], plate_a, trash=True)
 
 for c in robot.commands():
 	print(c)
