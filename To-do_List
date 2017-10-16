@@ -1,2 +1,6 @@
 Write a python program to prepare Echo transfer map
 Write an equation and optimize it using scipy
+Check with Opentrons about the calibrations file
+Check if the volumes of containers are eenough to process the whole plate
+Find a way for the script to write what it is doing in the terminal
+Prepare the master file(s)
