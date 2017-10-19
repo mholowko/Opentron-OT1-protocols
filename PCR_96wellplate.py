@@ -1,4 +1,12 @@
 from opentrons import robot, containers, instruments
+from opentrons.util import environment
+import os
+
+robot.connect('/det/ttyACM0')
+environment.refresh()
+print(environment.get_path('CALIBRATION_FILE'))
+
+robot.home()
 
 tube_rack = containers.load('tube-rack-2ml', 'C3', 'tube_rack')
 plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
@@ -29,5 +37,4 @@ m2.drop_tip(trash2)
 
 m2.distribute(20, tube_rack.wells('B1'), plate2, trash=True)
 
-for c in robot.commands():
-	print(c)
+robot.run()
