@@ -15,3 +15,5 @@ m1000 = instruments.Pipette(
 	channels = 1)
 
 m1000.transfer(950, media('A1'), hot_plate, new_tip=('always'))
+
+robot.run()
