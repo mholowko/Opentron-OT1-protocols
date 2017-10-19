@@ -21,3 +21,5 @@ for row in cold_plate.rows():
 	i += 1
 
 m2.delay(minutes=31)
+
+robot.run()
