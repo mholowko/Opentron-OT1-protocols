@@ -1,3 +1,5 @@
+# for instructions, please refer to TransformationMASTER.py
+
 from opentrons import containers, instruments, robot
 
 source_plate = containers.load('96-PCR-flat', 'B2', 'source_plate')
@@ -13,13 +15,13 @@ m2 = instruments.Pipette(
 	min_volume = 0.2,
 	max_volume = 2,
 	axis = "a",
-	channels = 1)
+	channels = 8)
 
 i=0
 for row in cold_plate.rows():
 	m2.transfer(2, source_plate(i), row, mix_after=(4, 30), new_tips='always')
 	i += 1
 
-m2.delay(minutes=31)
+m2.delay(minutes=29)
 
 robot.run()
