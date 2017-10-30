@@ -1,4 +1,4 @@
-#   ******    INSTRUCTIONS    ******
+#         ******    INSTRUCTIONS    ******
 #
 #	1. Ensure that files:
 #			ExtractingDNA_MASTER.py
