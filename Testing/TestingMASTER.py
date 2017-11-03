@@ -1,9 +1,22 @@
 from opentrons import robot, containers, instruments
 from opentrons.util import environment
+import os
 
-robot.connect(robot.get_serial_ports_list()[0])
+
+robot.connect('/dev/ttyACM0')
+
 
 environment.refresh()
+print(environment.get_path('CALIBRATIONS_FILE'))
 
-exec(open('Testing1.py').read())
-exec(open('Testing2.py').read())
+
+
+robot.home()
+
+exec(open('/home/changlab/Desktop/Opentrons/Testing2.py').read())
+input('Press enter to continue...')
+
+robot.reset()
+robot.home()
+
+exec(open('/home/changlab/Desktop/Opentrons/Testing1.py').read())

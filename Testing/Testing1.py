@@ -12,11 +12,10 @@ m200 = instruments.Pipette(name="m200", trash_container = trash2, tip_racks=[m20
 
 m200.pick_up_tip(m200rack.well('A1'))
 for row in plate2.rows():
-	m200.transfer(20, trough('A1'), row, new_tip ='never',trash=False)
+	m200.distribute(30, trough('A1'), row, new_tip ='never',trash=False)
 m200.return_tip()
 
 for row in plate2.rows():
-	m200.transfer(20, trough('A2'), row, trash=False)
+	m200.distribute(30, trough('A2'), row, new_tip = 'never', trash=False)
 
-for c in robot.commands():
-	print(c)
+robot.run()
