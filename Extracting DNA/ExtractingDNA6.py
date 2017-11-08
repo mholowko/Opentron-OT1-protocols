@@ -2,7 +2,7 @@
 
 from opentrons import robot, instruments, containers
 
-plate384 = containers.create('plate384', grid=(16,24), spacing=(4.5,4.5), diameter=3.87, depth=9)
+plate384 = containers.create('plate384', grid=(16,24), spacing=(4.5,4.5), diameter=3.8, depth=12)
 
 source_plate = containers.load('trough-12row', 'B2', 'source_plate')
 plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
