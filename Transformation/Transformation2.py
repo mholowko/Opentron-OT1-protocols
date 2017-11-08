@@ -2,34 +2,29 @@
 
 from opentrons import containers, instruments, robot
 
-plate2 = containers.load('96-PCR-flat', 'B1', 'plate2')
-cold_plate = containers.load('96-PCR-flat', 'C2', 'cold_plate')
-hot_plate = containers.load('96-PCR-flat', 'C1', 'hot_plate')
+plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
 media = containers.load('point', 'C3', 'media')
-m1000rack2 = containers.load('tiprack-1000ul', 'B1', 'm1000rack2')
-m1000rack3 = containers.load('tiprack-1000ul', 'B3', 'm1000rack3')
-m1000rack4 = containers.load('tiprack-1000ul', 'A1', 'm1000rack4')
+m200rack2 = containers.load('tiprack-200ul', 'B3', 'm1000rack2')
 trash2 = containers.load('point', 'D2', 'trash2')
 
-m1000 = instruments.Pipette(
-	name = "m1000",
+m200 = instruments.Pipette(
+	name = "m200",
 	trash_container = trash2,
-	tip_racks = [m1000rack2, m1000rack3, m1000rack4],
-	min_volume = 100,
-	max_volume = 1000,
+	tip_racks = [m200rack2],
+	min_volume = 300,
+	max_volume = 50,
 	axis = "a",
 	channels = 8)
 
+plate_a=[]
 i=0
-for row in hot_plate.rows():
-	m1000.transfer(52, cold_plate.rows(i), row, new_tip='always', trash=False)
-	i +=1
+for col in plate2.cols():
+	for i in range(12):
+		plate_a.append(col.wells(i, length=1, step=1))
+		i += 1
 
-for row in plate2.rows():
-	m1000.transfer(52, hot_plate.rows(i), row, new_tip='always')
-	i += 1
+m200.pick_up_tip(m200rack2.well('A1'))
+m200.distribute(950, media['A1'], plate_a, trash=True)
 
-for row in plate2.rows():
-	m1000.transfer(950, media('A1'), row, new_tip=('always'))
 
 robot.run()
