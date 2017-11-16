@@ -3,8 +3,9 @@
 from opentrons import containers, instruments, robot
 
 well = containers.create('well', grid=(4, 5), spacing =(18,21), diameter = 10, depth = 33)
+bioradwell = containers.create('bioradwell', grid=(8, 12), spacing = (9, 9), diameter = 5.4, depth= 14.8)
 tube_rack = containers.load('well', 'B2', 'tube_rack')
-source_plate = containers.load('96-PCR-flat', 'C2', 'source_plate')
+source_plate = containers.load('bioradwell', 'C2', 'source_plate')
 m200rack2 = containers.load('tiprack-200ul', 'A2', 'm200rack2')
 trash2 = containers.load('point', 'D2', 'trash2')
 

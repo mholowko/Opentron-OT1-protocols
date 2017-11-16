@@ -1,4 +1,4 @@
-      INSTRUCTIONS
+#       INSTRUCTIONS
 #
 #	1. Ensure that files:
 #			ExtractingDNA_MASTER.py
@@ -93,17 +93,14 @@ robot.reset()
 robot.home()
 exec(open('ExtractingDNA2.py').read())
 print('Part (2/6) of DNA Extraction is completed.')
-input('Press enter to continue...')
 robot.reset()
 robot.home()
 exec(open('ExtractingDNA3.py').read())
 print('Part (3/6) of DNA Extraction is completed.')
-input('Press enter to continue...')
 robot.reset()
 robot.home()
 exec(open('ExtractingDNA4.py').read())
 print('Part (4/6) of DNA Extraction is completed.')
-input('Press enter to continue...')
 robot.reset()
 robot.home()
 exec(open('ExtractingDNA5.py').read())
@@ -116,4 +113,3 @@ exec(open('ExtractingDNA6.py').read())
 print('Part (6/6) of DNA Extraction is completed.')
 print('DNA Extraction is completed. Please take plate containing extracted DNA at C1')
 print('& remove all items from Opentrons, discard if necessary. Thank you :)')
-

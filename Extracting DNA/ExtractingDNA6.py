@@ -2,10 +2,11 @@
 
 from opentrons import robot, instruments, containers
 
-plate384 = containers.create('plate384', grid=(16,24), spacing=(4.5,4.5), diameter=3.8, depth=12)
+plate384 = containers.create('plate384', grid=(16,24), spacing=(4.5,4.5), diameter=3.8, depth=10.91)
+abwell = containers.create('abwell', grid=(8, 12), spacing = (9.025, 9.025), diameter = 5.5, depth= 20)
 
 source_plate = containers.load('trough-12row', 'B2', 'source_plate')
-plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
+plate2 = containers.load('abwell', 'C2', 'plate2')
 elute_plate = containers.load('plate384', 'C1', 'elute_plate')
 mag_deck= instruments.Magbead(name='mag_deck')
 m200rack3 = containers.load('tiprack-200ul', 'B1', 'm200-rack3')
