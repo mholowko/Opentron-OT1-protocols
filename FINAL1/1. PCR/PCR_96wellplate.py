@@ -41,7 +41,7 @@
 #   |               |               |               |               |               |
 #   |_______________________________________________________________________________|
 
-from opentrons import containers, instrument, robot
+from opentrons import containers, instruments, robot
 from opentrons.util import environment
 import os
 
@@ -55,7 +55,7 @@ tuberack20 = containers.create('tuberack20', grid=(4, 5), spacing =(18,21), diam
 abwell = containers.create('abwell', grid=(8, 12), spacing = (9.025, 9.025), diameter = 5.5, depth= 20)
 bioradwell = containers.create('bioradwell', grid=(8, 12), spacing = (9, 9), diameter = 5.4, depth= 14.8)
 tube_rack = containers.load('well', 'C3', 'tube_rack')
-plate2 = containers.load('bioradwell', 'C2', 'plate2')
+plate2 = containers.load('96-PCR-flat', 'C2', 'plate2')
 m200rack2 = containers.load('tiprack-200ul', 'B2', 'm200-rack2')
 trash2 = containers.load('point', 'D2', 'trash2')
 
@@ -63,7 +63,7 @@ m200 = instruments.Pipette(
 	name = "m200",
 	trash_container = trash2,
 	tip_racks = [m200rack2],
-	min_volume = 10,
+	min_volume = 50,
 	max_volume = 200,
 	axis = "a",
 	channels = 8)
